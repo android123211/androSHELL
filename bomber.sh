@@ -1,3 +1,4 @@
+
 toilet andro
 toilet SHELL
 dirandro="./android"
@@ -28,42 +29,185 @@ dir01=",.Infinite-Bomber-arm"
 dir2="./Infinite-Bomber-arm64-without-tor"
 dir="./Infinite-Bomber-arm-without-tor"
 dir0="./Infinite-Bomber-x86"
+dir00="./Infinite-Bomber-x86-without-tor"
+dir000="./Infinite-Bomber-x64"
+dir0000="./Infinite-Bomber-x64-without-tor"
+dirplus="./Configuration"
 
-echo -n "Checking first directory..."
+echo -n "Checking first directory... "
 if [ -d $dir2 ]
 then
-mv Infinite-Bomber-arm64-without-tor Infinite-Bomber-2-2
+mv Infinite-Bomber-arm64-without-tor Infinite-Bomber-1-2-2
 echo "done"
 else
 echo "done"
 fi
-echo -n "Checking second directory..."
+echo -n "Checking second directory... "
 if [ -d $dir ]
 then
-mv Infinite-Bomber-arm-without-tor Infinite-Bomber-1-2
+mv Infinite-Bomber-arm-without-tor Infinite-Bomber-1-1-2
 echo "done"
 else
 echo "done"
 fi
-echo -n "Checking third directory..."
+echo -n "Checking third directory... "
 if [ -d $dir21 ]
 then
-mv Infinite-Bomber-arm64 Infinite-Bomber-2-1
+mv Infinite-Bomber-arm64 Infinite-Bomber-1-2-1
 echo done
 else
 echo done
 fi
-echo -n "Checking fourth directory..."
+echo -n "Checking fourth directory... "
 if [ -d $dir01 ]
 then
-mv Infinite-Bomber-arm Infinite-Bomber-1-1
+mv Infinite-Bomber-arm Infinite-Bomber-1-1-1
 echo done
 else
 echo done
 fi
-echo -n "Checking head directory..."
+echo -n "Checking fifth directory... "
 if [ -d $dir0 ]
 then
+mv Infinite-Bomber-x86 Innfinite-Bomber-2-1-1
+echo done
+else
+echo done
+fi
+echo -n "Checking sixth directory... "
+if [ -d $dir00 ]
+then
+mv Infinite-Bomber-x86-without-tor Infinite-Bomber-2-1-2
+echo done
+else
+echo done
+fi
+echo -n "Checking seventh directory... "
+if [ -d $dir000 ]
+then
+mv Infinite-Bomber-x64 Infinite-Bomber-2-2-1
+echo done
+else
+echo done
+fi
+echo  -n "Checking eighth directory... "
+if [ -d $dir0000 ]
+then
+mv Infinite-Bomber-x64-without-tor Infinite-Bomber-2-2-2
+echo done
+else
+echo done
+fi
+echo -n "Checking head directory... "
+if [ -d $dirplus ]
+then
+echo done
+else
+echo -n "Which OS do you have?
+
+1) Android
+
+2) Linux
+
+Your choise: "
+read os
+echo $os > ./os.tp
+if [ $os = 2 ]
+then
+echo -n "Are you sure? If Linux OS is selected, remaining directories are deleted!
+
+1) YES, LINUX OS!
+2) NO, OTHER! (it will exit the app)
+
+Your choise: "
+read ch1
+if [ $ch1 = 1 ]
+then
+rm -R Infinite-Bomber-1-2-2
+rm -R Infinite-Bomber-1-1-2
+rm -R Infinite-Bomber-1-2-1
+rm -R Infinite-Bomber-1-1-1
+echo -n "Which processor do you have?
+
+1)x86
+
+2)x64
+
+Your choise: "
+read proc
+if [ $proc = 1 ]
+then
+echo -n "Are you sure? When x86 is selected, the remaining directories are deleted!
+
+1) YES, X86!
+2) NO, OTHER! (it will exit the app)
+
+Your choise: "
+read ch
+if [ $ch = 1 ]
+then
+rm -R Infinite-Bomber-2-2-1
+rm -R Infinite-Bomber-2-2-2
+mkdir Configuration
+cd Infinite-Bomber-2-1-1
+echo $proc > ./proc.tp
+else
+if [ $ch = 2 ]
+then
+echo "OK. Exiting the app..."
+exit
+else
+echo "You have chosen a nonexistent option! Choose 1 or 2!"
+fi
+fi
+fi
+if [ $proc = 2 ]
+then
+echo -n "Are you sure? When x64 is selected, the remaining directories are deleted!
+
+1)YES, X64!
+2)NO, OTHER! (it will exit the app)
+
+Your choise: "
+read ch
+if [ $ch = 1 ]
+then
+rm -R Infinite-Bomber-2-1-1
+rm -R Infinite-Bomber-2-1-2
+mkdir Configuration
+cd Infinite-Bomber-2-2-1
+echo $proc > ./proc.tp
+else
+if [ $ch = 2 ]
+then
+echo "OK. Exiting the app... "
+exit
+else
+echo "You have chosen a nonexistent option! Choose 1 or 2!"
+fi
+fi
+fi
+else
+echo "OK. Exiting ..."
+exit
+fi
+else
+if [ $os = 1 ]
+then
+echo "Are you sure? When Android OS is selected, remaining directories are deleted!
+
+1) YES, ANDROID OS!
+2) NO, OTHER! (it will exit the app)
+
+Your choise: "
+read ch1
+if [ $ch1 = 1 ]
+then
+rm -R Infinite-Bomber-2-1-1
+rm -R Infinite-Bomber-2-1-2
+rm -R Infinite-Bomber-2-2-1
+rm -R Infinite-Bomber-2-2-2
+echo $os > ./os.tp
 echo -n "Which processor do you have?
 
 1) arm
@@ -72,25 +216,22 @@ echo -n "Which processor do you have?
 
 Your choise: "
 read proc
-echo $proc >> ./proc.tp
 if [ $proc = 1 ]
 then
 echo -n "Are you sure? When arm is selected, the remaining directories are deleted!
 
 1) YES, ARM!
-2) NO, OTHER!
+2) NO, OTHER! (it will exit the app)
 
 Your choise: "
 read ch
 if [ $ch = 1 ]
 then
-rm -R Infinite-Bomber-x86
-rm -R Infinite-Bomber-x86-without-tor
-rm -R Infinite-Bomber-x64
-rm -R Infinite-Bomber-x64-without-tor
-rm -R Infinite-Bomber-arm64
-rm -R Infinite-Bomber-2-without-tor
-cd Infinite-Bomber-arm
+rm -R Infinite-Bomber-2-1
+rm -R Infinite-Bomber-2-2
+mkdir Configuration
+cd Infinite-Bomber-1-1
+echo $proc > ./proc.tp
 else
 if [ $ch = 2 ]
 then
@@ -107,19 +248,17 @@ then
 echo -n "Are you sure? When arm64 is selected, the remaining directories are deleted!
 
 1) YES, ARM64!
-2) NO, OTHER!
+2) NO, OTHER! (it will exit the app)
 
 Your choise: "
 read ch
 if [ $ch = 1 ]
 then
-rm -R Infinite-Bomber-x86
-rm -R Infinite-Bomber-x86-without-tor
-rm -R Infinite-Bomber-x64
-rm -R Infinite-Bomber-x64-without-tor
-rm -R Infinite-Bomber-arm
-rm -R Infinite-Bomber-1-without-tor
-cd Infinite-Bomber-arm64
+rm -R Infinite-Bomber-1-1
+rm -R Infinite-Bomber-1-2
+mkdir Configuration
+cd Infinite-Bomber-2-1
+echo $proc >> ./proc.tp
 else
 if [ $ch = 2 ]
 then
@@ -134,8 +273,12 @@ else
 echo "You have chosen a nonexistent option! Choose 1 or 2!"
 exit
 fi
+fi
 else
-echo done
+echo "OK. Exiting... "
+exit
+fi
+fi
 fi
 echo
 echo -n "Will you use Tor?
@@ -223,9 +366,22 @@ echo
 echo -n "Time? (0 is infinite): "
 read tim
 echo "Spam attack started succesfully! :)"
-cat /data/data/com.termux/files/home/proc.tp | while read proc
+cat /data/data/com.termux/files/home/android/os.tp | while read os
 do
-cd /data/data/com.termux/files/home/android/Infinite-Bomber-$proc-$tor
+if [ $os = 2 ]
+then
+cat /data/data/com.termux/files/home/proc.tp | while read proc
+do                                                                                                                
+cd /data/data/com.termux/files/home/android/Infinite-Bomber-$os-$proc-$tor
 chmod +x infinite-bomber
 ./infinite-bomber $phon $mod $log $tim
+done
+else
+cat /home/proc.tp | while read proc
+do
+cd /home/android/Infinite-Bomber-$os-$proc-$tor
+chmod +x infinite-bomber
+./infinite-bomber $phon $mod $log $tim
+done
+fi
 done
