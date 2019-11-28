@@ -25,7 +25,7 @@ fi
 fi
 cd android
 dir21="./Infinite-Bomber-arm64"
-dir01=",.Infinite-Bomber-arm"
+dir01="./Infinite-Bomber-arm"
 dir2="./Infinite-Bomber-arm64-without-tor"
 dir="./Infinite-Bomber-arm-without-tor"
 dir0="./Infinite-Bomber-x86"
@@ -69,7 +69,7 @@ fi
 echo -n "Checking fifth directory... "
 if [ -d $dir0 ]
 then
-mv Infinite-Bomber-x86 Innfinite-Bomber-2-1-1
+mv Infinite-Bomber-x86 Infinite-Bomber-2-1-1
 echo done
 else
 echo done
@@ -149,8 +149,8 @@ then
 rm -R Infinite-Bomber-2-2-1
 rm -R Infinite-Bomber-2-2-2
 mkdir Configuration
-cd Infinite-Bomber-2-1-1
 echo $proc > ./proc.tp
+cd Infinite-Bomber-2-1-1
 else
 if [ $ch = 2 ]
 then
@@ -172,11 +172,12 @@ Your choise: "
 read ch
 if [ $ch = 1 ]
 then
+pwd
 rm -R Infinite-Bomber-2-1-1
 rm -R Infinite-Bomber-2-1-2
 mkdir Configuration
-cd Infinite-Bomber-2-2-1
 echo $proc > ./proc.tp
+cd Infinite-Bomber-2-2-1
 else
 if [ $ch = 2 ]
 then
@@ -227,11 +228,11 @@ Your choise: "
 read ch
 if [ $ch = 1 ]
 then
-rm -R Infinite-Bomber-2-1
-rm -R Infinite-Bomber-2-2
+rm -R Infinite-Bomber-1-2-1
+rm -R Infinite-Bomber-1-2-2
 mkdir Configuration
-cd Infinite-Bomber-1-1
 echo $proc > ./proc.tp
+cd Infinite-Bomber-1-1-1
 else
 if [ $ch = 2 ]
 then
@@ -254,11 +255,11 @@ Your choise: "
 read ch
 if [ $ch = 1 ]
 then
-rm -R Infinite-Bomber-1-1
-rm -R Infinite-Bomber-1-2
+rm -R Infinite-Bomber-1-1-1
+rm -R Infinite-Bomber-1-1-2
 mkdir Configuration
-cd Infinite-Bomber-2-1
-echo $proc >> ./proc.tp
+echo $proc > ./proc.tp
+cd Infinite-Bomber-1-2-1
 else
 if [ $ch = 2 ]
 then
@@ -366,9 +367,10 @@ echo
 echo -n "Time? (0 is infinite): "
 read tim
 echo "Spam attack started succesfully! :)"
-cat /data/data/com.termux/files/home/android/os.tp | while read os
+pwd
+cat os.tp | while read os
 do
-if [ $os = 2 ]
+if [ $os = 1 ]
 then
 cat /data/data/com.termux/files/home/proc.tp | while read proc
 do                                                                                                                
@@ -377,10 +379,11 @@ chmod +x infinite-bomber
 ./infinite-bomber $phon $mod $log $tim
 done
 else
-cat /home/proc.tp | while read proc
+cat proc.tp | while read proc
 do
-cd /home/android/Infinite-Bomber-$os-$proc-$tor
+cd Infinite-Bomber-$os-$proc-$tor
 chmod +x infinite-bomber
+pwd
 ./infinite-bomber $phon $mod $log $tim
 done
 fi
